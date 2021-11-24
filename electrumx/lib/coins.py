@@ -1574,6 +1574,19 @@ class Hush(KomodoMixin, EquihashMixin, Coin):
     TX_PER_BLOCK = 2
     RPC_PORT = 18031
     REORG_LIMIT = 800
+    PEERS = [] 
+    
+    
+class GMS(KomodoMixin, EquihashMixin, Coin):
+    NAME = "GMS"
+    SHORTNAME = "GMS"
+    NET = "mainnet"
+    TX_COUNT = 256
+    TX_COUNT_HEIGHT = 128
+    TX_PER_BLOCK = 2
+    RPC_PORT = 12549
+    REORG_LIMIT = 800
+    PEERS = []
 
 
 class Monaize(KomodoMixin, EquihashMixin, Coin):
