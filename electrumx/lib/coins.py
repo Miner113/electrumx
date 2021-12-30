@@ -1588,6 +1588,48 @@ class GMS(KomodoMixin, EquihashMixin, Coin):
     REORG_LIMIT = 800
     PEERS = []
 
+    
+class Tokel(KomodoMixin, EquihashMixin, Coin):
+    NAME = "Tokel"
+    SHORTNAME = "TKL"
+    NET = "mainnet"
+    TX_COUNT = 256
+    TX_COUNT_HEIGHT = 128
+    TX_PER_BLOCK = 2
+    RPC_PORT = 29405
+    REORG_LIMIT = 800
+    PEERS = []
+
+    
+class GRMS(KomodoMixin, EquihashMixin, Coin):
+    NAME = "GRMS"
+    SHORTNAME = "GRMS"
+    NET = "mainnet"
+    TX_COUNT = 256
+    TX_COUNT_HEIGHT = 128
+    TX_PER_BLOCK = 2
+    RPC_PORT = 21687
+    REORG_LIMIT = 800
+    PEERS = []
+
+    @classmethod
+    def header_hash(cls, header):
+        '''Given a header return hash'''
+        import verushash
+        # if this may be the genesis block, use sha256, otherwise, VerusHash
+        if cls.header_prevhash(header) == bytes(32):
+            return double_sha256(header)
+        else:
+            if header[0] == 4 and header[2] >= 1:
+                if len(header) < 144 or header[143] < 3:
+                    return verushash.verushash_v2b(header)
+                elif header[143] < 4:
+                    return verushash.verushash_v2b1(header)
+                else:
+                    return verushash.verushash_v2b2(header)
+            else:
+                return verushash.verushash(header)
+
 
 class Monaize(KomodoMixin, EquihashMixin, Coin):
     NAME = "Monaize"
