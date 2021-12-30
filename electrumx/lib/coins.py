@@ -1601,6 +1601,18 @@ class Tokel(KomodoMixin, EquihashMixin, Coin):
     PEERS = []
 
     
+    class SUPERNET(KomodoMixin, EquihashMixin, Coin):
+    NAME = "SUPERNET"
+    SHORTNAME = "SUPERNET"
+    NET = "mainnet"
+    TX_COUNT = 256
+    TX_COUNT_HEIGHT = 128
+    TX_PER_BLOCK = 2
+    RPC_PORT = 29405
+    REORG_LIMIT = 800
+    PEERS = []
+
+    
 class GRMS(KomodoMixin, EquihashMixin, Coin):
     NAME = "GRMS"
     SHORTNAME = "GRMS"
