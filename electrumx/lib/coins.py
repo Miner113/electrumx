@@ -1608,7 +1608,7 @@ class Tokel(KomodoMixin, EquihashMixin, Coin):
     TX_COUNT = 256
     TX_COUNT_HEIGHT = 128
     TX_PER_BLOCK = 2
-    RPC_PORT = 29405
+    RPC_PORT = 11341
     REORG_LIMIT = 800
     PEERS = []
 
