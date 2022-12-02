@@ -1612,6 +1612,17 @@ class Tokel(KomodoMixin, EquihashMixin, Coin):
     REORG_LIMIT = 800
     PEERS = []
 
+    class BOTS(KomodoMixin, EquihashMixin, Coin):
+    NAME = "BOTS"
+    SHORTNAME = "BOTS"
+    NET = "mainnet"
+    TX_COUNT = 256
+    TX_COUNT_HEIGHT = 128
+    TX_PER_BLOCK = 2
+    RPC_PORT = 11964
+    REORG_LIMIT = 800
+    PEERS = []
+    
     
 class GRMS(KomodoMixin, EquihashMixin, Coin):
     NAME = "GRMS"
