@@ -2960,6 +2960,33 @@ class tBitg(Bitg):
     RPC_PORT = 19332
 
 
+class BTR(Coin):
+
+    NAME = "Bittern"
+    SHORTNAME = "BTR"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("022D2533")
+    XPRV_VERBYTES = bytes.fromhex("0221312B")
+    P2PKH_VERBYTE = bytes.fromhex("19")
+    P2SH_VERBYTES = (bytes.fromhex("1f"),)
+    WIF_BYTE = bytes.fromhex("99")
+    GENESIS_HASH = (
+        '0x00000496b79f4acff72cbee1051bf6a2947f9ad0211f1cd2abac3f5752c7985b')
+    DAEMON = daemon.DashDaemon
+    TX_COUNT = 1000
+    TX_COUNT_HEIGHT = 10000
+    TX_PER_BLOCK = 1
+    RPC_PORT = 42020
+    REORG_LIMIT = 1000
+    SESSIONCLS = DashElectrumX
+
+    @classmethod
+    def header_hash(cls, header):
+        '''Given a header return the hash.'''
+        import quark_hash
+        return quark_hash.getPoWHash(header)
+    
+    
 class EXOS(Coin):
     NAME = "EXOS"
     SHORTNAME = "EXOS"
